@@ -10,8 +10,8 @@ from transformers import CLIPTokenizer
 from library import model_util, sdxl_model_util, train_util, sdxl_original_unet
 from library.sdxl_lpw_stable_diffusion import SdxlStableDiffusionLongPromptWeightingPipeline
 
-TOKENIZER1_PATH = "openai/clip-vit-large-patch14"
-TOKENIZER2_PATH = "laion/CLIP-ViT-bigG-14-laion2B-39B-b160k"
+TOKENIZER1_PATH = "/home/featurize/work/ModeratorAE/clip-vit-large-patch14"
+TOKENIZER2_PATH = "/home/featurize/work/ModeratorAE/CLIP-ViT-bigG-14-laion2B-39B-b160k"
 
 # DEFAULT_NOISE_OFFSET = 0.0357
 

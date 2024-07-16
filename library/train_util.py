@@ -552,7 +552,7 @@ class BaseDataset(torch.utils.data.Dataset):
         self.XTI_layers = None
         self.token_strings = None
 
-        self.enable_bucket = False
+        self.enable_bucket = True#False modified by WhileBug
         self.bucket_manager: BucketManager = None  # not initialized
         self.min_bucket_reso = None
         self.max_bucket_reso = None
@@ -1534,6 +1534,7 @@ class FineTuningDataset(BaseDataset):
                 else:
                     # わりといい加減だがいい方法が思いつかん
                     paths = glob_images(subset.image_dir, image_key)
+                    paths = [subset.image_dir+"/"+image_key]
                     if len(paths) > 0:
                         abs_path = paths[0]
 
@@ -2140,6 +2141,7 @@ def load_arbitrary_dataset(args, tokenizer) -> MinimalDataset:
 
 
 def load_image(image_path):
+    print("image_path:", image_path)
     image = Image.open(image_path)
     if not image.mode == "RGB":
         image = image.convert("RGB")
